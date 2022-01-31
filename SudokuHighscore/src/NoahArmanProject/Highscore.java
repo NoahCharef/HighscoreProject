@@ -2,7 +2,7 @@ package NoahArmanProject;
 
 public class Highscore {
 
-    Highscore(String name, String dateTime, String level, Integer finishTime)
+    Highscore(String name, String dateTime, String level, Integer finishTime) // gibt Position in entsprechender Liste zurück: "Your rank: 1!" oder "HighScore entries only better than 1354 seconds" wenn die erreichte Zeit grösser als das aktuelle Maximum für das jeweilige Level ist undbereits 10 Einträge existieren.
     {
         this.name = name;
         this.dateTime = dateTime;

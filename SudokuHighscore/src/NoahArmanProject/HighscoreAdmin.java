@@ -1,7 +1,6 @@
 package NoahArmanProject;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -11,12 +10,12 @@ public class HighscoreAdmin{
     private Highscore selectedHighscore;
     private ArrayList<Highscore> highscoreList;
 
-    public void submit(String name, String dateTime, String level, Integer finishTime)
+    public void submit(String name, String dateTime, String level, Integer finishTime) // gibt Position in entsprechender Liste zurück: "Your rank: 1!" oder "HighScore entries only better than 1354 seconds" wenn die erreichte Zeit grösser als das aktuelle Maximum für das jeweilige Level ist undbereits 10 Einträge existieren.
     {
         this.selectedHighscore = new Highscore(name, dateTime, level, finishTime);
     }
 
-    public void save()
+    public void save() //speichert alle HighScores in einer CSV Datei ab.
     {
         try
         {
@@ -33,7 +32,7 @@ public class HighscoreAdmin{
         }
     }
 
-    public void load()
+    public void load() // lädt die HighScores aus der gleichen Datei wie save().
     {
         this.highscoreList = new ArrayList<Highscore>();
 
@@ -63,7 +62,7 @@ public class HighscoreAdmin{
         }
     }
 
-    public ArrayList<Highscore> getHighscore(String level)
+    public ArrayList<Highscore> getHighscore(String level) // liefert alle HighScores des entsprechenden Levels sortiert nach benötigter Zeit in einem Array zurück
     {
         if(this.highscoreList != null)
         {

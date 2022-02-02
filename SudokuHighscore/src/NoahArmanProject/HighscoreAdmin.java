@@ -2,8 +2,7 @@ package NoahArmanProject;
 
 import java.io.File;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class HighscoreAdmin{
 
@@ -17,9 +16,17 @@ public class HighscoreAdmin{
 
     public void save() //speichert alle HighScores in einer CSV Datei ab.
     {
+        this.load();
+
         try
         {
             PrintWriter writer = new PrintWriter(new File("highscores.csv"));
+
+
+            for(int i = 0; i < highscoreList.size(); i++)
+            {
+                writer.append(highscoreList.get(i).toString() + "\n");
+            }
 
             writer.append(this.selectedHighscore.toString());
 
@@ -54,6 +61,7 @@ public class HighscoreAdmin{
 
                 this.highscoreList.add(new Highscore(name, dateTime, level, finishTime));
             }
+            fileScanner.close();
         }
         catch (Exception ex)
         {
@@ -64,11 +72,16 @@ public class HighscoreAdmin{
 
     public ArrayList<Highscore> getHighscore(String level) // liefert alle HighScores des entsprechenden Levels sortiert nach benötigter Zeit in einem Array zurück
     {
-        if(this.highscoreList != null)
+        var arrayListWithLevel = new ArrayList<Highscore>();
+
+        for(int i = 0; i < highscoreList.size(); i++)
         {
-            return this.highscoreList;
+            if(highscoreList.get(i).getLevel().equals(level))
+                arrayListWithLevel.add(highscoreList.get(i));
         }
-        return new ArrayList<Highscore>();
+
+        Collections.sort(arrayListWithLevel);
+        return arrayListWithLevel;
     }
 
 

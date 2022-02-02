@@ -74,9 +74,13 @@ public class HighscoreAdmin{
     {
         var arrayListWithLevel = new ArrayList<Highscore>();
 
-        for(int i = 0; i < highscoreList.size(); i++)
-        {
-            if(highscoreList.get(i).getLevel().equals(level))
+        if(level.equals("")) {
+            Collections.sort(highscoreList);
+            return highscoreList;
+        }
+
+        for (int i = 0; i < highscoreList.size(); i++) {
+            if (highscoreList.get(i).getLevel().equals(level))
                 arrayListWithLevel.add(highscoreList.get(i));
         }
 

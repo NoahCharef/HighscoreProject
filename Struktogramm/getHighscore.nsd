@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="https://structorizer.fisch.lu" version="3.32-06" preRepeat="until " postFor="to" preReturn="return" postForIn="in" preWhile="while " output="OUTPUT" input="INPUT" preFor="for" preExit="exit" preLeave="leave" ignoreCase="true" preThrow="throw" preForIn="foreach" stepFor="by" namespace="" author="arman" created="2022-02-03" changedby="arman" changed="2022-02-03" origin="Structorizer 3.32-06" text="&#34;getHighscore&#34;" comment="&#34;&#34;" color="ffffff" type="program" style="nice">
+	<children>
+		<instruction text="&#34;        var arrayListWithLevel = new ArrayList&#60;Highscore&#62;();&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+		<for text="&#34;level.equals(&#34;&#34;&#34;&#34;)&#34;" comment="&#34;&#34;" counterVar="dummy_counter" startValue="level.equals(&#34;&#34;)" stepConst="1" style="FREETEXT" color="ffffff" disabled="0">
+			<qFor>
+				<instruction text="&#34;            Collections.sort(highscoreList);&#34;,&#34;            return highscoreList;&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qFor>
+		</for>
+		<for text="&#34;int i = 0; i &#60; highscoreList.size(); i++&#34;" comment="&#34;&#34;" counterVar="dummy_counter" startValue="int i = 0; i &#60; highscoreList.size(); i++" stepConst="1" style="FREETEXT" color="ffffff" disabled="0">
+			<qFor>
+				<alternative text="&#34;highscoreList.get(i).getLevel().equals(level)&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+					<qTrue>
+						<instruction text="&#34;arrayListWithLevel.add(highscoreList.get(i))&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qTrue>
+					<qFalse>
+						<instruction text="&#34;-&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qFalse>
+				</alternative>
+			</qFor>
+		</for>
+		<instruction text="&#34;        Collections.sort(arrayListWithLevel);&#34;,&#34;        return arrayListWithLevel;&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+	</children>
+</root>

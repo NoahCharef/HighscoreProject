@@ -1,6 +1,7 @@
 package NoahArmanProject;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -49,22 +50,34 @@ public class Main {
     }
 
     public static void addHighscore() {
+
         try {
+            String name = "";
+            String date = "";
+            String level = "";
+            int time = 0;
+
             System.out.println("name: ");
             Scanner sc = new Scanner(System.in);
-            String name = sc.nextLine();
+            name = sc.nextLine();
 
             System.out.println("date: ");
             Scanner sc2 = new Scanner(System.in);
-            String date = sc2.nextLine();
+            date = sc2.nextLine();
 
-            System.out.println("level: ");
-            Scanner sc3 = new Scanner(System.in);
-            String level = sc3.nextLine();
+            while(true) {
+                System.out.println("level (einfach, mittel, schwer, genie): ");
+                Scanner sc3 = new Scanner(System.in);
+                level = sc3.nextLine();
+
+                if(level.toLowerCase(Locale.ROOT).equals("einfach") || level.toLowerCase(Locale.ROOT).equals("mittel") || level.toLowerCase(Locale.ROOT).equals("schwer") || level.toLowerCase(Locale.ROOT).equals("genie")) {
+                    break;
+                }
+            }
 
             System.out.println("finish time: ");
             Scanner sc4 = new Scanner(System.in);
-            int time = Integer.parseInt(sc4.nextLine());
+            time = Integer.parseInt(sc4.nextLine());
 
             admin.submit(name, date, level, time);
 
@@ -76,3 +89,4 @@ public class Main {
         }
     }
 }
+

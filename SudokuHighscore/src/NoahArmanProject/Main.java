@@ -22,28 +22,17 @@ public class Main {
             Scanner sc = new Scanner(System.in);
             input = sc.nextLine();
 
-            switch (input)
-            {
-                case "a":
-                    addHighscore();
-                    break;
-                case "g":
-                    var highscores = getHighscore();
-                    for (Highscore highscore : highscores) {
-                        System.out.println(highscore);
-                    }
-                    break;
-                case "e":
-                    isTrue = false;
-                    break;
-                default:
-                    System.out.println("Invalid input");
+            switch (input) {
+                case "a" -> addHighscore();
+                case "g" -> getHighscore();
+                case "e" -> isTrue = false;
+                default -> System.out.println("Invalid input");
             }
 
         }
     }
 
-    private static ArrayList<Highscore> getHighscore() {
+    private static void getHighscore() {
         System.out.println("Input a level if needed: ");
 
         Scanner sc = new Scanner(System.in);
@@ -51,7 +40,12 @@ public class Main {
 
         admin.load();
 
-        return admin.getHighscore(input);
+        var highscores = admin.getHighscore(input);
+
+        System.out.println();
+        for (Highscore highscore : highscores) {
+            System.out.println(highscore);
+        }
     }
 
     public static void addHighscore() {
